@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="wedding">
+<head>
+<title>WEDDING</title>
+<link rel=stylesheet href="bootstrap.min.css">
+</head>
+
+<body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="app.js"></script>
+
+<div class="container" ng-controller="weddingController" >
+	
+	<div class="jumbotron" style= "background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD-GwMAN0KEkY0Nf8JueIOhPrY5mCldnc7EZnd9K_HMNE5eILRVgeQsqs') ;">
+		<h1>OUR WEDDING!</h1>
+		<p>and the people in it</p>
+		<br></br>
+		<input type="text" ng-model="searchkey"></input>
+		<button type="button" class="btn btn-success" ng-click=search()>Search</button>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-6 text-center"> 
+			<h2>The Bride!</h2>
+			<img src="https://scontent.fblr2-1.fna.fbcdn.net/v/t1.0-9/15672813_10209832268876692_6933444721796812642_n.jpg?oh=25f9246dae26545caaf85e2e41827133&oe=5919D47B" height="240px" width="240px" class="img-circle">
+			<p>Ruchi</p>
+		</div>
+		<div class="col-lg-6 text-center"> 
+			<h2>The Groom!</h2>
+			<img src="https://scontent.fblr2-1.fna.fbcdn.net/v/t1.0-9/15781748_10207046704277817_6482151643846193550_n.jpg?oh=e94f1474b5af4a8c9fdccee3895b58c1&oe=5921EDD0" height="240px" width="240px" class="img-circle">
+			<p>Mayank</p>
+		</div>
+	</div>
+	<div class="row">
+		<div ng-repeat="name in names | filter: searchkey" >
+			<div class="col-lg-4 col-md-6 col-sm-12 text-center" ng-show="name.show">
+				<h4>{{name.name}}</h4>
+				<p>Relation : {{name.relation}}</p>
+				<p>Related To : {{name.relatedTo}}</p>
+				<img src={{name.image}} height="120px" width="120px" class="img-rounded">			
+			</div>
+		</div>
+	</div>
+
+
+</div>
+	
+</body>
+</html>
+
+
